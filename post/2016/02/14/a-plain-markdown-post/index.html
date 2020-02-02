@@ -6,7 +6,7 @@
     <title>A Plain Markdown Post | Anant Dalela</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+    
   </head>
 
   <body>
@@ -60,7 +60,7 @@
 </ul>
 <p>Similarly, Blackfriday does not support LaTeX math and Pandoc does. I have added the MathJax support to this theme (<a href="https://github.com/yihui/hugo-xmin">hugo-xmin</a>) but there is a caveat for plain Markdown posts: you have to include math expressions in a pair of backticks (inline: <code>`$ $`</code>; display style: <code>`$$ $$`</code>), e.g., <code>$S_n = \sum_{i=1}^n X_i$</code>.^[This is because we have to protect the math expressions from being interpreted as Markdown.] For R Markdown posts, you do not need the backticks, because Pandoc can identify and process math expressions.</p>
 <p>When creating a new post, you have to decide whether the post format is Markdown or R Markdown, and this can be done via the <code>rmd</code> argument of the function <code>blogdown::new_post()</code>, e.g.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">blogdown<span style="color:#f92672">::</span><span style="color:#a6e22e">new_post</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Post Title&#34;</span>, rmd <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">blogdown<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">new_post</span>(<span style="color:#d14">&#34;</span><span style="color:#d14">Post Title&#34;</span>, rmd <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">FALSE</span>)
 </code></pre></div><p>Actually I recommend you to use the RStudio addin &ldquo;New Post&rdquo; instead:</p>
 <p><img src="https://bookdown.org/yihui/blogdown/images/new-post.png" alt="RStudio addin New Post"></p>
 <h1 id="2-sample-text">2. Sample Text</h1>
@@ -74,16 +74,16 @@
 <p>Quisque mattis volutpat lorem vitae feugiat. Praesent porta est quis porta imperdiet. Aenean porta, mi non cursus volutpat, mi est mollis libero, id suscipit orci urna a augue. In fringilla euismod lacus, vitae tristique massa ultricies vitae. Mauris accumsan ligula tristique, viverra nulla sed, porta sapien. Vestibulum facilisis nec nisl blandit convallis. Maecenas venenatis porta malesuada. Ut ac erat tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla sodales quam sit amet tincidunt egestas. In et turpis at orci vestibulum ullamcorper. Aliquam sed ante libero. Sed hendrerit arcu lacus.</p>
 </blockquote>
 <p>Some code (with a drop-shadow effect):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">(<span style="color:#66d9ef">function</span>() {
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">quotes</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#39;blockquote&#39;</span>), <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">quote</span>;
-  <span style="color:#66d9ef">for</span> (<span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">quotes</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
-    <span style="color:#a6e22e">quote</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">quotes</span>[<span style="color:#a6e22e">i</span>];
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">quote</span>.<span style="color:#a6e22e">children</span>.<span style="color:#a6e22e">length</span>;
-    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">n</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">continue</span>;
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">quote</span>.<span style="color:#a6e22e">children</span>[<span style="color:#a6e22e">n</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
-    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">el</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">nodeName</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;P&#39;</span>) <span style="color:#66d9ef">continue</span>;
-    <span style="color:#75715e">// right-align a quote footer if it starts with ---
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">/^—/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">textContent</span>)) <span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">textAlign</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;right&#39;</span>;
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">(<span style="color:#000;font-weight:bold">function</span>() {
+  <span style="color:#000;font-weight:bold">var</span> quotes <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">document</span>.getElementsByTagName(<span style="color:#d14">&#39;blockquote&#39;</span>), i, quote;
+  <span style="color:#000;font-weight:bold">for</span> (i <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> quotes.length; i<span style="color:#000;font-weight:bold">++</span>) {
+    quote <span style="color:#000;font-weight:bold">=</span> quotes[i];
+    <span style="color:#000;font-weight:bold">var</span> n <span style="color:#000;font-weight:bold">=</span> quote.children.length;
+    <span style="color:#000;font-weight:bold">if</span> (n <span style="color:#000;font-weight:bold">===</span> <span style="color:#099">0</span>) <span style="color:#000;font-weight:bold">continue</span>;
+    <span style="color:#000;font-weight:bold">var</span> el <span style="color:#000;font-weight:bold">=</span> quote.children[n <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>];
+    <span style="color:#000;font-weight:bold">if</span> (<span style="color:#000;font-weight:bold">!</span>el <span style="color:#000;font-weight:bold">||</span> el.nodeName <span style="color:#000;font-weight:bold">!==</span> <span style="color:#d14">&#39;P&#39;</span>) <span style="color:#000;font-weight:bold">continue</span>;
+    <span style="color:#998;font-style:italic">// right-align a quote footer if it starts with ---
+</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">if</span> (<span style="color:#009926">/^—/</span>.test(el.textContent)) el.style.textAlign <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;right&#39;</span>;
   }
 })();
 </code></pre></div><p>A table (centered by default):</p>
@@ -153,14 +153,6 @@
 <script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 <script async src="//yihui.name/js/center-img.js"></script>
-
-<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
-
-<script>
-hljs.configure({languages: []});
-hljs.initHighlightingOnLoad();
-</script>
 
   
   <hr/>
