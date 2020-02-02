@@ -5,6 +5,9 @@ body {
   line-height: 1.5em;
 }
 
+.container span {
+  display: inline-block;
+}
 /* header and footer areas */
 .menu { padding: 0; }
 .menu li { display: inline-block; }
