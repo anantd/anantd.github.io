@@ -13,21 +13,21 @@
     
     <item>
       <title>R to MD test</title>
-      <link>/post/2020/01/01/r-to-md-test/</link>
+      <link>/2020/01/01/r-to-md-test/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020/01/01/r-to-md-test/</guid>
+      <guid>/2020/01/01/r-to-md-test/</guid>
       <description>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min.</description>
     </item>
     
     <item>
-      <title>Lorem Ipsum</title>
-      <link>/post/2019/12/31/lorem-ipsum/</link>
+      <title>Lorem Ipsum Super Long Title Let&#39;s See How This Looks</title>
+      <link>/2019/12/31/lorem-ipsum-super-long-title-lets-see-how-this-looks/</link>
       <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/12/31/lorem-ipsum/</guid>
+      <guid>/2019/12/31/lorem-ipsum-super-long-title-lets-see-how-this-looks/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 Quisque mattis volutpat lorem vitae feugiat.</description>
     </item>

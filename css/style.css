@@ -8,14 +8,16 @@ body {
 .container span {
   display: inline-block;
 }
+
 /* header and footer areas */
 .menu { padding: 0; }
 .menu li { display: inline-block; }
 .article-meta, .menu a {
   text-decoration: none;
   background: rgb(238, 237, 237);
-  padding: 3px;
+  padding: 2px;
   border-radius: 2px;
+  line-height: 1.2;
 }
 .terms { font-size: .9em; }
 .menu, .article-meta, footer { text-align: center; }

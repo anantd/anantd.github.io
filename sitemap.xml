@@ -18,7 +18,7 @@
   </url>
   
   <url>
-    <loc>/post/2020/01/01/r-to-md-test/</loc>
+    <loc>/2020/01/01/r-to-md-test/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -38,12 +38,12 @@
   </url>
   
   <url>
-    <loc>/post/2019/12/31/lorem-ipsum/</loc>
+    <loc>/2019/12/31/lorem-ipsum-super-long-title-lets-see-how-this-looks/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>/bookshelf/</loc>
   </url>
   
 </urlset>
