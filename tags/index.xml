@@ -6,6 +6,8 @@
     <description>Recent content in Tags on Anant Dalela</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>anant.dalela@gmail.com (Anant Dalela)</managingEditor>
+    <webMaster>anant.dalela@gmail.com (Anant Dalela)</webMaster>
     <lastBuildDate>Wed, 05 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +17,7 @@
       <title>statistics</title>
       <link>/tags/statistics/</link>
       <pubDate>Wed, 05 Feb 2020 00:00:00 +0000</pubDate>
-      
+      <author>anant.dalela@gmail.com (Anant Dalela)</author>
       <guid>/tags/statistics/</guid>
       <description></description>
     </item>
@@ -24,7 +26,7 @@
       <title>Markdown</title>
       <link>/tags/markdown/</link>
       <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
-      
+      <author>anant.dalela@gmail.com (Anant Dalela)</author>
       <guid>/tags/markdown/</guid>
       <description></description>
     </item>

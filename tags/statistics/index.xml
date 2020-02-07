@@ -6,6 +6,8 @@
     <description>Recent content in statistics on Anant Dalela</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>anant.dalela@gmail.com (Anant Dalela)</managingEditor>
+    <webMaster>anant.dalela@gmail.com (Anant Dalela)</webMaster>
     <lastBuildDate>Wed, 05 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +17,7 @@
       <title>Quick thoughts on Simpson&#39;s paradox</title>
       <link>/2020/02/05/quick-thoughts-on-simpsons-paradox/</link>
       <pubDate>Wed, 05 Feb 2020 00:00:00 +0000</pubDate>
-      
+      <author>anant.dalela@gmail.com (Anant Dalela)</author>
       <guid>/2020/02/05/quick-thoughts-on-simpsons-paradox/</guid>
       <description>&lt;p&gt;Under construction.&lt;/p&gt;
 </description>

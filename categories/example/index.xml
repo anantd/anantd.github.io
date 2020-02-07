@@ -6,6 +6,8 @@
     <description>Recent content in Example on Anant Dalela</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>anant.dalela@gmail.com (Anant Dalela)</managingEditor>
+    <webMaster>anant.dalela@gmail.com (Anant Dalela)</webMaster>
     <lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/example/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +17,7 @@
       <title>Intro to Tidymodels</title>
       <link>/note/intro-to-tidymodels/</link>
       <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
-      
+      <author>anant.dalela@gmail.com (Anant Dalela)</author>
       <guid>/note/intro-to-tidymodels/</guid>
       <description></description>
     </item>
@@ -24,7 +26,7 @@
       <title>Lorem Ipsum Super Long Title Let&#39;s See How This Looks</title>
       <link>/2019/12/31/lorem-ipsum-super-long-title-lets-see-how-this-looks/</link>
       <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
-      
+      <author>anant.dalela@gmail.com (Anant Dalela)</author>
       <guid>/2019/12/31/lorem-ipsum-super-long-title-lets-see-how-this-looks/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Lorem ipsum&lt;/strong&gt; dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore &lt;em&gt;magna aliqua&lt;/em&gt;. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
 &lt;p&gt;Quisque mattis volutpat lorem vitae feugiat. Praesent porta est quis porta imperdiet. Aenean porta, mi non cursus volutpat, mi est mollis libero, id suscipit orci urna a augue. In fringilla euismod lacus, vitae tristique massa ultricies vitae. Mauris accumsan ligula tristique, viverra nulla sed, porta sapien. Vestibulum facilisis nec nisl blandit convallis. Maecenas venenatis porta malesuada. Ut ac erat tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla sodales quam sit amet tincidunt egestas. In et turpis at orci vestibulum ullamcorper. Aliquam sed ante libero. Sed hendrerit arcu lacus.&lt;/p&gt;

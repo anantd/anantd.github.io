@@ -6,6 +6,8 @@
     <description>Recent content in Notes on Anant Dalela</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>anant.dalela@gmail.com (Anant Dalela)</managingEditor>
+    <webMaster>anant.dalela@gmail.com (Anant Dalela)</webMaster>
     <lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/note/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +17,7 @@
       <title>Intro to Tidymodels</title>
       <link>/note/intro-to-tidymodels/</link>
       <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
-      
+      <author>anant.dalela@gmail.com (Anant Dalela)</author>
       <guid>/note/intro-to-tidymodels/</guid>
       <description></description>
     </item>
