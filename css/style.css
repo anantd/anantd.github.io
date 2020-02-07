@@ -22,9 +22,10 @@ body {
 .article-duration {  
   font-style: italic;
   margin-top: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 15px;
 }
 
+/* share box in footer */
 .share {
   background-color: rgb(224, 224, 224);
   padding: 10px;
