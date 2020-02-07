@@ -21,10 +21,9 @@ body {
 /* article duration */
 .article-duration {  
   font-style: italic;
-  margin-left: 10px;
+  margin-top: 15px;
+  margin-bottom: 40px;
 }
-
-.reading-time-row .pocket { float:left } 
 
 .share {
   background-color: rgb(224, 224, 224);
