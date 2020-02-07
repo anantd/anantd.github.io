@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Anant Dalela</title>
-    <link>/categories/</link>
+    <link>https://anantd.github.io/categories/</link>
     <description>Recent content in Categories on Anant Dalela</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,15 +10,15 @@
     <webMaster>anant.dalela@gmail.com (Anant Dalela)</webMaster>
     <lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://anantd.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Example</title>
-      <link>/categories/example/</link>
+      <link>https://anantd.github.io/categories/example/</link>
       <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
       <author>anant.dalela@gmail.com (Anant Dalela)</author>
-      <guid>/categories/example/</guid>
+      <guid>https://anantd.github.io/categories/example/</guid>
       <description></description>
     </item>
     

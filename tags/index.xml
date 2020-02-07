@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Anant Dalela</title>
-    <link>/tags/</link>
+    <link>https://anantd.github.io/tags/</link>
     <description>Recent content in Tags on Anant Dalela</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,24 +10,24 @@
     <webMaster>anant.dalela@gmail.com (Anant Dalela)</webMaster>
     <lastBuildDate>Wed, 05 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://anantd.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>statistics</title>
-      <link>/tags/statistics/</link>
+      <link>https://anantd.github.io/tags/statistics/</link>
       <pubDate>Wed, 05 Feb 2020 00:00:00 +0000</pubDate>
       <author>anant.dalela@gmail.com (Anant Dalela)</author>
-      <guid>/tags/statistics/</guid>
+      <guid>https://anantd.github.io/tags/statistics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Markdown</title>
-      <link>/tags/markdown/</link>
+      <link>https://anantd.github.io/tags/markdown/</link>
       <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
       <author>anant.dalela@gmail.com (Anant Dalela)</author>
-      <guid>/tags/markdown/</guid>
+      <guid>https://anantd.github.io/tags/markdown/</guid>
       <description></description>
     </item>
     
