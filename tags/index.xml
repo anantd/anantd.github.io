@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Anant Dalela</title>
+    <title>Tags on Anant&#39;s Site</title>
     <link>https://anantd.github.io/tags/</link>
-    <description>Recent content in Tags on Anant Dalela</description>
+    <description>Recent content in Tags on Anant&#39;s Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>anant.dalela@gmail.com (Anant Dalela)</managingEditor>
@@ -19,15 +19,6 @@
       <pubDate>Wed, 05 Feb 2020 00:00:00 +0000</pubDate>
       <author>anant.dalela@gmail.com (Anant Dalela)</author>
       <guid>https://anantd.github.io/tags/statistics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Markdown</title>
-      <link>https://anantd.github.io/tags/markdown/</link>
-      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
-      <author>anant.dalela@gmail.com (Anant Dalela)</author>
-      <guid>https://anantd.github.io/tags/markdown/</guid>
       <description></description>
     </item>
     

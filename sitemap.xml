@@ -28,37 +28,15 @@
   </url>
   
   <url>
-    <loc>https://anantd.github.io/categories/</loc>
-    <lastmod>2020-02-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://anantd.github.io/categories/example/</loc>
-    <lastmod>2020-02-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://anantd.github.io/note/intro-to-tidymodels/</loc>
-    <lastmod>2020-02-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://anantd.github.io/tags/markdown/</loc>
-    <lastmod>2020-02-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://anantd.github.io/note/</loc>
-    <lastmod>2020-02-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://anantd.github.io/2019/12/31/lorem-ipsum-super-long-title-lets-see-how-this-looks/</loc>
-    <lastmod>2019-12-31T00:00:00+00:00</lastmod>
+    <loc>https://anantd.github.io/about/</loc>
   </url>
   
   <url>
     <loc>https://anantd.github.io/bookshelf/</loc>
+  </url>
+  
+  <url>
+    <loc>https://anantd.github.io/categories/</loc>
   </url>
   
 </urlset>
