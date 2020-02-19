@@ -4,39 +4,40 @@
   
   <url>
     <loc>https://anantd.github.io/</loc>
-    <lastmod>2020-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://anantd.github.io/post/inital-commit/</loc>
+    <lastmod>2020-02-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://anantd.github.io/post/</loc>
-    <lastmod>2020-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://anantd.github.io/2020/02/05/quick-thoughts-on-simpsons-paradox/</loc>
-    <lastmod>2020-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://anantd.github.io/tags/statistics/</loc>
-    <lastmod>2020-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://anantd.github.io/tags/</loc>
-    <lastmod>2020-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://anantd.github.io/about/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://anantd.github.io/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://anantd.github.io/bookshelf/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://anantd.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://anantd.github.io/tags/</loc>
   </url>
   
 </urlset>
