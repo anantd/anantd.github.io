@@ -18,6 +18,36 @@
   </url>
   
   <url>
+    <loc>https://anantd.github.io/tags/css/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://anantd.github.io/tags/html/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://anantd.github.io/tags/markdown/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://anantd.github.io/post/markdown-syntax/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://anantd.github.io/tags/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://anantd.github.io/tags/themes/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://anantd.github.io/about/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url>
@@ -34,10 +64,6 @@
   
   <url>
     <loc>https://anantd.github.io/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://anantd.github.io/tags/</loc>
   </url>
   
 </urlset>

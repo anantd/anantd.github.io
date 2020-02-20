@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Anant Dalela</title>
-    <link>https://anantd.github.io/post/</link>
-    <description>Recent content in Posts on Anant Dalela</description>
+    <title>css on Anant Dalela</title>
+    <link>https://anantd.github.io/tags/css/</link>
+    <description>Recent content in css on Anant Dalela</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>anant.dalela@gmail.com (Anant Dalela)</managingEditor>
     <webMaster>anant.dalela@gmail.com (Anant Dalela)</webMaster>
-    <lastBuildDate>Wed, 19 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://anantd.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://anantd.github.io/tags/css/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Initial commit</title>
-      <link>https://anantd.github.io/post/inital-commit/</link>
-      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
-      <author>anant.dalela@gmail.com (Anant Dalela)</author>
-      <guid>https://anantd.github.io/post/inital-commit/</guid>
-      <description>Coming soon.</description>
-    </item>
     
     <item>
       <title>Markdown Syntax</title>
