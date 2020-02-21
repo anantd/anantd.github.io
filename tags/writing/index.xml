@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Anant Dalela</title>
-    <link>https://anantd.github.io/post/</link>
-    <description>Recent content in Posts on Anant Dalela</description>
+    <title>writing on Anant Dalela</title>
+    <link>https://anantd.github.io/tags/writing/</link>
+    <description>Recent content in writing on Anant Dalela</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>anant.dalela@gmail.com (Anant Dalela)</managingEditor>
     <webMaster>anant.dalela@gmail.com (Anant Dalela)</webMaster>
     <lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://anantd.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://anantd.github.io/tags/writing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
