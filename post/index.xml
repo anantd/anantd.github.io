@@ -5,27 +5,25 @@
     <link>https://anantd.github.io/post/</link>
     <description>Recent content in Posts on Anant Dalela</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <managingEditor>anant.dalela@gmail.com (Anant Dalela)</managingEditor>
-    <webMaster>anant.dalela@gmail.com (Anant Dalela)</webMaster>
-    <lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <language>en</language>
+    <lastBuildDate>Mon, 24 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://anantd.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting started</title>
-      <link>https://anantd.github.io/post/getting-started/</link>
-      <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
-      <author>anant.dalela@gmail.com (Anant Dalela)</author>
-      <guid>https://anantd.github.io/post/getting-started/</guid>
+      <link>https://anantd.github.io/post/getting_started/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://anantd.github.io/post/getting_started/</guid>
       <description>&lt;p&gt;Not much to see here yet, just some housekeeping notes. This blog is built with &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; and published using Github Pages. I started with &lt;a href=&#34;https://themes.gohugo.io/theme/hugo-theme-noteworthy/&#34;&gt;this theme&lt;/a&gt;, and made some minor tweaks:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;linked a Javascript plug-in called &lt;a href=&#34;https://github.com/goblindegook/littlefoot&#34;&gt;Littlefoot&lt;/a&gt; &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
 &lt;li&gt;edited RSS parameters so the feed now includes the full body of each post (&lt;em&gt;*feed reader nods approvingly*&lt;/em&gt;) &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
-&lt;li&gt;messed around with fonts for too long (highly recommend Matthew Butterick&amp;rsquo;s &amp;lsquo;Practical Typography,&amp;rsquo; which you can &lt;a href=&#34;https://practicaltypography.com/&#34;&gt;read online&lt;/a&gt;, and shout out to the creaters of &lt;a href=&#34;https://google-webfonts-helper.herokuapp.com/fonts/&#34;&gt;google webfonts helper&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;messed around with fonts for too long (highly recommend Matthew Butterick&amp;rsquo;s &amp;lsquo;Practical Typography,&amp;rsquo; which you can &lt;a href=&#34;https://practicaltypography.com/&#34;&gt;read online&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Still feeling my way around; my biggest takeaway so far is &lt;em&gt;Hugo is fast&lt;/em&gt;. &lt;code&gt;hugo server&lt;/code&gt; locally deploys your site in milliseconds, and updates live as you edit the source files.&lt;/p&gt;
+&lt;p&gt;Still feeling my way around; my biggest takeaway so far is Hugo&amp;rsquo;s speed. &lt;code&gt;hugo server&lt;/code&gt; locally deploys your site in milliseconds, and updates live as you edit the source files.&lt;/p&gt;
 &lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
