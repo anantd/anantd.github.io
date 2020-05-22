@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Anant Dalela</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://anantd.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>numpy</title>
+      <link>https://anantd.github.io/categories/numpy/</link>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://anantd.github.io/categories/numpy/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>COVID-19</title>

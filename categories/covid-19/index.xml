@@ -99,7 +99,10 @@
 &lt;/details&gt;
 &lt;p&gt;If you&amp;rsquo;re curious, here&amp;rsquo;s a chart showing how PPV changes as prevalence increases. At a prevalence of ~2%, there&amp;rsquo;s still a one-third chance that a positive test is wrong.&lt;/p&gt;
 &lt;figure class=&#34;center&#34;&gt;
-    &lt;img src=&#34;https://anantd.github.io/files/covid_prevalence_zoomed.svg&#34;/&gt; 
+    &lt;img src=&#34;https://anantd.github.io/files/covid_prevalence_zoomed.svg&#34;
+         alt=&#34;Positive predictive value when prevalence is low (click/tap to enlarge)&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;&lt;em&gt;Positive predictive value when prevalence is low (click/tap to enlarge)&lt;/em&gt;&lt;/p&gt;
+        &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;Zooming out, you can see how once prevalence gets past 10%, positive tests start becoming pretty reliable.&lt;/p&gt;
 &lt;figure class=&#34;center&#34;&gt;

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Implementing KNN with numpy - Anant Dalela</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Anant Dalela" /><meta name="description" content="This is an annotated version from the numpy partitioning section from Jake Van Der Plaas&amp;rsquo; Python Data Science Handbook. In the unlikely event that you haven&amp;rsquo;t heard of it, I highly recommend checking it out (it&amp;rsquo;s available for free as a set of Jupyter notebooks)." /><meta name="keywords" content="blog, data science, machine learning, programming, software" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
+
+
+<link rel="canonical" href="https://anantd.github.io/notebook/knn-with-numpy/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link rel="stylesheet" href="https://unpkg.com/littlefoot/dist/littlefoot.css"/>
+
+}
+
+
+
+
+
+
+<link href="/sass/main.min.7d6f9db7aaf976457a4985d907ab38adb06529e2d4fba2533f03cada394309ea.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Implementing KNN with numpy" />
+<meta property="og:description" content="This is an annotated version from the numpy partitioning section from Jake Van Der Plaas&rsquo; Python Data Science Handbook. In the unlikely event that you haven&rsquo;t heard of it, I highly recommend checking it out (it&rsquo;s available for free as a set of Jupyter notebooks)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anantd.github.io/notebook/knn-with-numpy/" />
+<meta property="article:published_time" content="2020-05-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-12T00:00:00+00:00" />
+<meta itemprop="name" content="Implementing KNN with numpy">
+<meta itemprop="description" content="This is an annotated version from the numpy partitioning section from Jake Van Der Plaas&rsquo; Python Data Science Handbook. In the unlikely event that you haven&rsquo;t heard of it, I highly recommend checking it out (it&rsquo;s available for free as a set of Jupyter notebooks).">
+<meta itemprop="datePublished" content="2020-05-12T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-12T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1249">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Implementing KNN with numpy"/>
+<meta name="twitter:description" content="This is an annotated version from the numpy partitioning section from Jake Van Der Plaas&rsquo; Python Data Science Handbook. In the unlikely event that you haven&rsquo;t heard of it, I highly recommend checking it out (it&rsquo;s available for free as a set of Jupyter notebooks)."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Anant Dalela</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/notebooks/">
+        <li class="mobile-menu-item">Notebooks</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Anant Dalela</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/notebooks/">Notebooks</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Implementing KNN with numpy</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> May 12, 2020 </span>
+        <div class="post-category">
+            <a href="/categories/numpy/"> numpy </a>
+            </div>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>This is an annotated version from the <code>numpy</code> partitioning section from Jake Van Der Plaas&rsquo; Python Data Science Handbook. In the unlikely event that you haven&rsquo;t heard of it, I highly recommend checking it out (it&rsquo;s available for free as a set of Jupyter notebooks). You can find the exact section I&rsquo;m recreating here:</p>
+<p><a href="https://jakevdp.github.io/PythonDataScienceHandbook/02.08-sorting.html">https://jakevdp.github.io/PythonDataScienceHandbook/02.08-sorting.html</a></p>
+<p>I was reviewing the section to brush up on <code>numpy</code>'s broadcasting rules, and thought this example perfectly nailed how terse and elegant <code>numpy</code> code can be. I&rsquo;m sure I&rsquo;ll revisit this example, I thought I&rsquo;d clean up my notes and save them in a notebook.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Generating 10 random 2-D coordinates:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">dat</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>array([[ 1.76405235,  0.40015721],
+       [ 0.97873798,  2.2408932 ],
+       [ 1.86755799, -0.97727788],
+       [ 0.95008842, -0.15135721],
+       [-0.10321885,  0.4105985 ],
+       [ 0.14404357,  1.45427351],
+       [ 0.76103773,  0.12167502],
+       [ 0.44386323,  0.33367433],
+       [ 1.49407907, -0.20515826],
+       [ 0.3130677 , -0.85409574]])
+</code></pre>
+<p>Here&rsquo;s the single line implementation of the KNN computation, before we break it down step-by-step:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># single line implementation</span>
+<span class="n">dist_sq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">dat</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">dat</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dist_sq</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>array([[ 0.        ,  4.00502763,  1.90804084,  0.96670543,  3.48681075,
+         3.7355896 ,  1.08359066,  1.74731927,  0.43929239,  3.67850689],
+       [ 4.00502763,  0.        , 11.1466261 ,  5.72368281,  4.52060927,
+         1.3154853 ,  4.53847911,  3.92357482,  6.2487442 , 10.02207345],
+       [ 1.90804084, 11.1466261 ,  0.        ,  1.52389537,  5.81016221,
+         8.8829441 ,  2.43208457,  3.74550245,  0.7356552 ,  2.4316139 ],
+       [ 0.96670543,  5.72368281,  1.52389537,  0.        ,  1.42525042,
+         3.22775829,  0.11028676,  0.49151953,  0.29882039,  0.89963684],
+       [ 3.48681075,  4.52060927,  5.81016221,  1.42525042,  0.        ,
+         1.15039622,  0.83041621,  0.30521614,  2.93051706,  1.77274602],
+       [ 3.7355896 ,  1.3154853 ,  8.8829441 ,  3.22775829,  1.15039622,
+         0.        ,  2.15650052,  1.34563435,  4.57630966,  5.35713773],
+       [ 1.08359066,  4.53847911,  2.43208457,  0.11028676,  0.83041621,
+         2.15650052,  0.        ,  0.14554337,  0.64416961,  1.15280571],
+       [ 1.74731927,  3.92357482,  3.74550245,  0.49151953,  0.30521614,
+         1.34563435,  0.14554337,  0.        ,  1.39329387,  1.4279052 ],
+       [ 0.43929239,  6.2487442 ,  0.7356552 ,  0.29882039,  2.93051706,
+         4.57630966,  0.64416961,  1.39329387,  0.        ,  1.81590771],
+       [ 3.67850689, 10.02207345,  2.4316139 ,  0.89963684,  1.77274602,
+         5.35713773,  1.15280571,  1.4279052 ,  1.81590771,  0.        ]])
+</code></pre>
+<p>Thanks to numpy&rsquo;s convenient reshaping functions and broadcasting behaviors, this single line computes the squared difference between each pair of points in a vectorized manner.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dat</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># first col, the x coordinates</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>array([ 1.76405235,  0.97873798,  1.86755799,  0.95008842, -0.10321885,
+        0.14404357,  0.76103773,  0.44386323,  1.49407907,  0.3130677 ])
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dat</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># second col, the y coordinates</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>array([ 0.40015721,  2.2408932 , -0.97727788, -0.15135721,  0.4105985 ,
+        1.45427351,  0.12167502,  0.33367433, -0.20515826, -0.85409574])
+</code></pre>
+<p>Here are the 10 points on a scatterplot:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dat</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dat</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>&lt;matplotlib.collections.PathCollection at 0x1133ebc90&gt;
+</code></pre>
+<p><img src="/files/knn_with_numpy/output_10_1.png" alt="png"></p>
+<h2 id="step-1-differences-in-each-dimension">Step 1: differences in each dimension</h2>
+<p>Compute differences in the x and y dimension for each pair of points.</p>
+<p>Note: you can review the full section on broadcasting <a href="https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html">in this section</a>. <a href="https://medium.com/@ian.dzindo01/what-is-numpy-newaxis-and-when-to-use-it-8cb61c7ed6ae">This post</a> has a nice explanation as well.</p>
+<p>The first operand in the difference operation is the original 2-D <code>dat</code> array expanded over 10 rows.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dat</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>array([[[ 1.76405235,  0.40015721]],
+
+       [[ 0.97873798,  2.2408932 ]],
+
+       [[ 1.86755799, -0.97727788]],
+
+       [[ 0.95008842, -0.15135721]],
+
+       [[-0.10321885,  0.4105985 ]],
+
+       [[ 0.14404357,  1.45427351]],
+
+       [[ 0.76103773,  0.12167502]],
+
+       [[ 0.44386323,  0.33367433]],
+
+       [[ 1.49407907, -0.20515826]],
+
+       [[ 0.3130677 , -0.85409574]]])
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dat</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>(10, 1, 2)
+</code></pre>
+<p>The second operand is the 2D <code>dat</code> array nested into a single &lsquo;row&rsquo; (row ~ first axis).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dat</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>array([[[ 1.76405235,  0.40015721],
+        [ 0.97873798,  2.2408932 ],
+        [ 1.86755799, -0.97727788],
+        [ 0.95008842, -0.15135721],
+        [-0.10321885,  0.4105985 ],
+        [ 0.14404357,  1.45427351],
+        [ 0.76103773,  0.12167502],
+        [ 0.44386323,  0.33367433],
+        [ 1.49407907, -0.20515826],
+        [ 0.3130677 , -0.85409574]]])
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dat</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>(1, 10, 2)
+</code></pre>
+<p>When the two are subtracted, the second operand is stretched from <code>(1, 10, 2)</code> to <code>(10, 10, 2)</code>, which triggers the first operand to be stretched from <code>(10, 1, 2)</code> to <code>(10, 10, 2)</code> (i.e. within each row, the point is repeated 10 times)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># for each pair of points, compute differences in their coordinates</span>
+<span class="c1"># difference needs to be defined this way for broadcasting to work</span>
+<span class="c1"># since first operand is spread out over rows, the full set of points can be subtracted from each pop</span>
+
+<span class="n">differences</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span><span class="n">dat</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+<span class="n">differences</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>(10, 10, 2)
+</code></pre>
+<p>We can see the end result by inspecting one the elements of differences.</p>
+<p>ex: for the first element, the first set of differences is <code>0, 0</code>, since that&rsquo;s the first point&rsquo;s distance from itself in teh x and y dimensions.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">differences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>array([[ 0.        ,  0.        ],
+       [ 0.78531436, -1.84073599],
+       [-0.10350564,  1.37743509],
+       [ 0.81396393,  0.55151442],
+       [ 1.8672712 , -0.01044129],
+       [ 1.62000877, -1.0541163 ],
+       [ 1.00301462,  0.27848219],
+       [ 1.32018911,  0.06648288],
+       [ 0.26997327,  0.60531547],
+       [ 1.45098464,  1.25425295]])
+</code></pre>
+<p>Another sanity check: the diagonal is full of zeroes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">differences</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>array([[0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.]])
+</code></pre>
+<h2 id="step-2-squared-differences">Step 2: squared differences</h2>
+<p>Squaring the differences just requires a simple scalar broadcast:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># squaring each of the diffs</span>
+<span class="n">sq_diff</span> <span class="o">=</span> <span class="n">differences</span> <span class="o">**</span> <span class="mi">2</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p>Inspecting the first element again:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">sq_diff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>array([[0.00000000e+00, 0.00000000e+00],
+       [6.16718647e-01, 3.38830899e+00],
+       [1.07134184e-02, 1.89732742e+00],
+       [6.62537277e-01, 3.04168152e-01],
+       [3.48670173e+00, 1.09020611e-04],
+       [2.62442843e+00, 1.11116117e+00],
+       [1.00603833e+00, 7.75523312e-02],
+       [1.74289929e+00, 4.41997347e-03],
+       [7.28855680e-02, 3.66406821e-01],
+       [2.10535644e+00, 1.57315046e+00]])
+</code></pre>
+<h2 id="step-3-summing-squared-differences">Step 3: summing squared differences</h2>
+<p>Now, we sum the coordinate differences along the last axis:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dist_sq</span> <span class="o">=</span> <span class="n">sq_diff</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># note that this is equivalent to squared_diff.sum(2)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>We can inspect the diagonal once again to make sure each point has a squared distance of 0 from itself:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dist_sq</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>array([[ 0.        ,  4.00502763,  1.90804084,  0.96670543,  3.48681075,
+         3.7355896 ,  1.08359066,  1.74731927,  0.43929239,  3.67850689],
+       [ 4.00502763,  0.        , 11.1466261 ,  5.72368281,  4.52060927,
+         1.3154853 ,  4.53847911,  3.92357482,  6.2487442 , 10.02207345],
+       [ 1.90804084, 11.1466261 ,  0.        ,  1.52389537,  5.81016221,
+         8.8829441 ,  2.43208457,  3.74550245,  0.7356552 ,  2.4316139 ],
+       [ 0.96670543,  5.72368281,  1.52389537,  0.        ,  1.42525042,
+         3.22775829,  0.11028676,  0.49151953,  0.29882039,  0.89963684],
+       [ 3.48681075,  4.52060927,  5.81016221,  1.42525042,  0.        ,
+         1.15039622,  0.83041621,  0.30521614,  2.93051706,  1.77274602],
+       [ 3.7355896 ,  1.3154853 ,  8.8829441 ,  3.22775829,  1.15039622,
+         0.        ,  2.15650052,  1.34563435,  4.57630966,  5.35713773],
+       [ 1.08359066,  4.53847911,  2.43208457,  0.11028676,  0.83041621,
+         2.15650052,  0.        ,  0.14554337,  0.64416961,  1.15280571],
+       [ 1.74731927,  3.92357482,  3.74550245,  0.49151953,  0.30521614,
+         1.34563435,  0.14554337,  0.        ,  1.39329387,  1.4279052 ],
+       [ 0.43929239,  6.2487442 ,  0.7356552 ,  0.29882039,  2.93051706,
+         4.57630966,  0.64416961,  1.39329387,  0.        ,  1.81590771],
+       [ 3.67850689, 10.02207345,  2.4316139 ,  0.89963684,  1.77274602,
+         5.35713773,  1.15280571,  1.4279052 ,  1.81590771,  0.        ]])
+</code></pre>
+<h2 id="step-4-sorting-squared-distances">Step 4: sorting squared distances</h2>
+<p>Sorting each row by distance:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># again, notice: each point is closest to itself</span>
+<span class="n">nearest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">dist_sq</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">nearest</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>array([[0, 8, 3, 6, 7, 2, 4, 9, 5, 1],
+       [1, 5, 7, 0, 4, 6, 3, 8, 9, 2],
+       [2, 8, 3, 0, 9, 6, 7, 4, 5, 1],
+       [3, 6, 8, 7, 9, 0, 4, 2, 5, 1],
+       [4, 7, 6, 5, 3, 9, 8, 0, 1, 2],
+       [5, 4, 1, 7, 6, 3, 0, 8, 9, 2],
+       [6, 3, 7, 8, 4, 0, 9, 5, 2, 1],
+       [7, 6, 4, 3, 5, 8, 9, 0, 2, 1],
+       [8, 3, 0, 6, 2, 7, 9, 4, 5, 1],
+       [9, 3, 6, 7, 4, 8, 2, 0, 5, 1]])
+</code></pre>
+<h2 id="an-improvement-using-npargpartition-instead-of-npargsort">An improvement: using <code>np.argpartition</code> instead of <code>np.argsort</code></h2>
+<p>We can improve the solution by using <code>np.argpartition</code>. Instead of sorting the full list of distances, it puts the K lowest values up front, and lists the remaining distances in an arbitrary order.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">K</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">nearest_partition</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argpartition</span><span class="p">(</span><span class="n">dist_sq</span><span class="p">,</span> <span class="n">K</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Connecting each point two its 2 nearest neighbors:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dat</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dat</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># draw lines from each point to its two nearest neighbors</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">nearest_partition</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">dat</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="/files/knn_with_numpy/output_41_0.png" alt="png"></p>
+
+    </div>
+
+    <div class="post-copyright">
+  
+  
+  
+</div>
+<script src="https://unpkg.com/littlefoot/dist/littlefoot.js" 
+  type="application/javascript"></script>
+<script type="application/javascript">
+  littlefoot.default()
+</script><footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="anantd/blog-comments"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:anant.dalela@gmail.com?subject=Hi!" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.twitter.com/4nant" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.linkedin.com/in/anantdalela/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://www.github.com/anantd" class="iconfont icon-github" title="github"></a>
+  <a href="https://anantd.github.io//post/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>.
+    &copy; 
+    2019 - 
+    2020
+    
+    <span class="author">Anant Dalela</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-33531021-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+</body>
+</html>
