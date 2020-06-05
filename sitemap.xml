@@ -50,6 +50,12 @@
   </url>
   
   <url>
+    <loc>https://anantd.github.io/work/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://anantd.github.io/about/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
