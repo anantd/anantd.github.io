@@ -205,7 +205,30 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://anantd.github.io/notebooks/</guid>
-      <description>&lt;p&gt;&lt;mark&gt;Coming soon.&lt;/mark&gt;&lt;/p&gt;
+      <description>&lt;p&gt;⚡ under construction ⚡&lt;/p&gt;
+&lt;h2 id=&#34;pandas&#34;&gt;Pandas&lt;/h2&gt;
+&lt;p&gt;Notes on using the &lt;a href=&#34;https://pandas.pydata.org/&#34;&gt;pandas&lt;/a&gt; library for data analysis (mostly from the perspective of a former &lt;a href=&#34;https://dplyr.tidyverse.org/&#34;&gt;dplyr&lt;/a&gt; user).&lt;/p&gt;
+&lt;h3 id=&#34;basics&#34;&gt;Basics&lt;/h3&gt;
+&lt;p&gt;Reading data&lt;br&gt;
+Data types in numpy and pandas&lt;br&gt;
+Inspecting and summarizing&lt;br&gt;
+Indexing and subsetting&lt;br&gt;
+Generating views vs copies&lt;br&gt;
+Grouped aggregations&lt;/p&gt;
+&lt;h3 id=&#34;time-series&#34;&gt;Time series&lt;/h3&gt;
+&lt;p&gt;Imputing missing values&lt;br&gt;
+Rolling aggregations&lt;/p&gt;
+&lt;h3 id=&#34;other&#34;&gt;Other&lt;/h3&gt;
+&lt;p&gt;Quick built-in plots&lt;br&gt;
+Notes on optimizing pandas&lt;/p&gt;
+&lt;h2 id=&#34;altair&#34;&gt;Altair&lt;/h2&gt;
+&lt;p&gt;Quick reference: line, bar, histogram&lt;br&gt;
+Layering charts&lt;br&gt;
+Customization: color&lt;br&gt;
+Customization: legend and axes&lt;br&gt;
+Interaction: brush selection&lt;br&gt;
+Interaction: highlight&lt;br&gt;
+Interaction: cross-filtering&lt;/p&gt;
 </description>
     </item>
     
